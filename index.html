@@ -1,0 +1,49 @@
+function hideAllColumns() {								
+	for(var i=4;i<{/literal}{$total_column}{literal};i++){									
+		columns = my_table.column(i).visible(0);
+	}								
+}
+
+function calculateOtherFee() {								
+	var totalRow = my_table.rows().count();								
+	var totalColumn = my_table.columns().header().length;
+	for(var index=0;index<totalRow;index++){
+		var row = my_table.rows(index).data()[0];									
+		var other = 0;
+		for(var i=4;i<totalColumn;i++){
+			if(!my_table.column(i).visible()){											
+				other+=parseInt(row[i]);											
+			}
+		}									
+		my_table.cell(index,{/literal}{$total_column}{literal}).data(other).draw();
+	}
+}
+
+jQuery(document).ready(function(){																
+	jQuery('#toggle_column').multipleSelect({
+		width:200,
+		onClick: function(view) {
+			var sectors = jQuery('#toggle_column').multipleSelect("getSelects");										
+			hideAllColumns();
+			for(var i=0;i<sectors.length;i++){
+				var s = sectors[i];
+				my_table.column(s).visible(1);
+			}
+			calculateOtherFee();
+		},
+		onCheckAll: function() {
+			var sectors = jQuery('#toggle_column').multipleSelect("getSelects");
+			for(var i=0;i<sectors.length;i++){
+				var s = sectors[i];
+				my_table.column(s).visible(1);
+			}
+			calculateOtherFee();
+		},
+		onUncheckAll: function() {
+			hideAllColumns();
+			calculateOtherFee();
+		}
+	});	
+	jQuery('#toggle_column').multipleSelect("setSelects", show_index);
+	
+});

@@ -1,0 +1,92 @@
+html, body {
+  height: 93%;
+}
+.alert{
+	margin-bottom: 0;
+}
+.page-header{
+	margin: 0 0 15px 0;
+}
+#mytable{
+	margin-top: 10px;
+}
+.page-header-gutter{
+	height: 10px;
+}
+.sidebar-nav {
+    padding: 9px 0;
+}
+.pagination{
+	float:right;
+}
+.dataTables_filter{
+	float: right;
+}
+.dataTables_filter input[type=search]{
+	margin-left: 5px;
+}
+.table-hover tbody tr:hover > th {
+  background-color: #D1D119;
+}
+#site-content{
+	min-height: 100%;
+}
+
+#site-footer {
+  position: relative;
+  margin: -40px 20px; /* negative value of footer height */
+  height: 50px;
+  clear:both;
+  padding-top:20px;
+} 
+h1{
+	font-size: 20px;
+}
+select{
+	text-transform: capitalize;
+}
+.field-type{
+	text-transform: capitalize;		
+}
+.filter-label{
+	float: left !important;
+	padding-top: 5px;
+}
+#field-type{
+	margin-right: 5px;
+}
+#site-header .navbar{
+	border-radius:0;
+}
+.report-heading{
+	font-size: 12px;
+}
+.report-heading-center h5{
+	margin:0px;
+	font-weight:bold;
+}
+.tax-table{
+	font-size: 12px;
+}
+.tax-table th{
+	text-align: center;
+	border: 2px solid black !important;	
+}
+.tax-table tr td{
+	border: 1px solid black !important;
+	padding: 5px !important;
+}
+.report-per-employee{
+	border-bottom: 2px dotted black;
+	margin-bottom: 50px;
+}
+@media print {
+    .report-per-employee {page-break-after: always; border-bottom:0; margin-bottom: 0;}
+	footer{display:none;}
+	hr{
+		display:none;
+	}
+}
+#site-header{
+	display:none;
+}
